@@ -1,11 +1,12 @@
 # import main Flask class and request object
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import json
 
 # create the Flask app
 app = Flask(__name__)
-
+cors = CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
