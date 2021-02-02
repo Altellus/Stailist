@@ -28,6 +28,8 @@ class Result(db.Model):
     whyUsesStailist = db.Column(db.String(50), nullable=False)
     visitsSportStores = db.Column(db.Boolean, nullable=False)
     plan = db.Column(db.String(20), nullable=False)
+    username = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
         return f"Result('{self.id}', '{self.age}', '{self.bigFive}', '{self.colors}')"
@@ -52,7 +54,9 @@ def stailist_results():
         hasALotOfClothes=request_data['hasALotOfClothes'],
         whyUsesStailist=request_data['whyUsesStailist'],
         visitsSportStores=request_data['visitsSportStores'],
-        plan=request_data['plan']
+        plan=request_data['plan'],
+        username=request_data['username'],
+        password=request_data['password']
     )
     print(new_result)
     db.session.add(new_result)
